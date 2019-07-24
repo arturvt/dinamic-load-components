@@ -7,7 +7,7 @@ import { AdItem }            from './ad-item';
   selector: 'app-root',
   template: `
     <div>
-      <app-ad-banner [ads]="ads"></app-ad-banner>
+      <app-main-component [ads]="ads"></app-main-component>
     </div>
   `
 })

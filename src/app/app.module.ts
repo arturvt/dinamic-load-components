@@ -1,21 +1,21 @@
 import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { AppComponent }         from './app.component';
-import { HeroJobAdComponent }   from './hero-job-ad.component';
-import { AdBannerComponent }    from './ad-banner.component';
-import { HeroProfileComponent } from './hero-profile.component';
 import { AdDirective }          from './ad.directive';
 import { AdService }            from './ad.service';
+import { JobAdComponent } from './components/job-ad/job-ad.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MainComponentComponent } from './components/main-component/main-component.component';
 
 @NgModule({
   imports: [ BrowserModule ],
   providers: [AdService],
   declarations: [ AppComponent,
-                  AdBannerComponent,
-                  HeroJobAdComponent,
-                  HeroProfileComponent,
-                  AdDirective ],
-  entryComponents: [ HeroJobAdComponent, HeroProfileComponent ],
+                  AdDirective,
+                  JobAdComponent,
+                  ProfileComponent,
+                  MainComponentComponent ],
+  entryComponents: [JobAdComponent, ProfileComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
