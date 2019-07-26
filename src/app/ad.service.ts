@@ -1,60 +1,69 @@
-import { Injectable }           from '@angular/core';
-import { AdItem }               from './ad-item';
-import { JobAdComponent } from './components/job-ad/job-ad.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { AdModel } from './ad.model';
+import { Injectable } from "@angular/core";
+import { AdItem } from "./ad-item";
+import { JobAdComponent } from "./components/job-ad/job-ad.component";
+import { ProfileComponent } from "./components/profile/profile.component";
+import { AdModel } from "./ad.model";
 
 @Injectable()
 export class AdService {
-
   getAdsRequest(): AdModel[] {
     return [
-      {type: 'profile-component', data: {
-        name: 'Profile 01', bio: 'description of the 1st profile'}
+      {
+        type: "job-ad",
+        isVisible: true,
+        data: {
+          advertising: 'Some content',
+          text: 'Some text',
+          clients: 10,
+          isImportant: true
+        }
       },
-      {type: 'profile-component', data: {
-        name: 'Profile 02', bio: 'Second profile description'}
+      {
+        type: "profile-component",
+        isVisible: true,
+        data: {
+          title: 'title from item 01',
+          subTitle: 'subtitle item 01',
+          text: 'Lorem ipsum dolor sit amet, at nam persecuti voluptaria elaboraret, no mazim congue ullamcorper per. Movet placerat voluptaria no his, persius postulant accusamus sea ad. In duo debitis consectetuer definitiones',
+          isNew: false
+        }
       },
-      {type: 'profile-component', data: {
-        name: 'Profile 03', bio: 'Second profile description'}
+      {
+        type: "profile-component",
+        isVisible: true,
+        data: {
+          title: 'title from item 02',
+          subTitle: 'Subtitle from item 02',
+          text: 'Lorem ipsum dolor sit amet, at nam persecuti voluptaria elaboraret, no mazim congue ullamcorper per. Movet placerat voluptaria no his, persius postulant accusamus sea ad. In duo debitis consectetuer definitiones',
+          isNew: true
+        }
       },
-      {type: 'job-ad', data: {
-        name: 'Some JobAd', headline: 'Greetings sir!',  body: 'Body Sample', bio: "Don't show this!"
-      }}
+      {
+        type: "job-ad",
+        isVisible: true,
+        data: {
+          advertising: 'Some content',
+          text: 'Some text',
+          clients: 20,
+          isImportant: false
+        }
+      }
     ];
   }
 
   private resolveComponent(adModel: AdModel): AdItem {
-    switch(adModel.type) {
-      case 'profile-component':
+    switch (adModel.type) {
+      case "profile-component":
         return new AdItem(ProfileComponent, adModel.data);
       default:
-        return new AdItem(JobAdComponent,   adModel.data);
+        return new AdItem(JobAdComponent, adModel.data);
     }
   }
 
   getAds(): AdItem[] {
     return this.getAdsRequest().map(a => this.resolveComponent(a));
   }
-
-  // getAds(): AdItem[] {
-  //   return [
-  //     new AdItem(ProfileComponent, {name: 'Bombasto', bio: 'Brave as they come'}),
-  //     new AdItem(JobAdComponent,   {headline: 'Openings in all departments',
-  //                                       body: 'Apply today'}),
-  //     new AdItem(ProfileComponent, {name: 'Bombasto', bio: 'Brave as they come'}),
-
-  //     new AdItem(ProfileComponent, {name: 'Dr IQ', bio: 'Smart as they come'}),
-
-  //     new AdItem(JobAdComponent,   {headline: 'Hiring for several positions',
-  //                                       body: 'Submit your resume today!'}),
-
-  //     new AdItem(JobAdComponent,   {headline: 'Openings in all departments',
-  //                                       body: 'Apply today'}),
-  //   ];
-  // }
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

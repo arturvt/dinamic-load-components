@@ -1,5 +1,5 @@
-<div class="job-ad">
-  <h4>{{data.headline}}</h4>
-
-  {{data.body}}
+<div class="job-ad" [ngClass]="{'important': data.isImportant}">
+    <p>{{data.text}}</p>
+    <p>{{data.advertising}}</p>
+    <p>Number of clients: {{data.clients}}</p>
 </div>

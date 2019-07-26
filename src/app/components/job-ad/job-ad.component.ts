@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AdComponent } from 'src/app/ad.component';
+import { JobData } from './job.data';
 
 @Component({
   selector: 'app-job-ad',
@@ -8,7 +9,7 @@ import { AdComponent } from 'src/app/ad.component';
 })
 export class JobAdComponent implements OnInit, AdComponent {
 
-  @Input() data: any;
+  @Input() data: JobData;
 
   constructor() { }
 
