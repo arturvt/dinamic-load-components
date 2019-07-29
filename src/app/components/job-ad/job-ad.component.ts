@@ -11,9 +11,8 @@ export class JobAdComponent implements OnInit, AdComponent {
 
   @Input() data: JobData;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

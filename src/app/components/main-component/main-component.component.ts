@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver } from '@angular/core';
-import { AdDirective } from '../../ad.directive';
+import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { AdItem }      from '../../ad-item';
 import { AdComponent } from '../../ad.component';
 
@@ -10,18 +9,19 @@ import { AdComponent } from '../../ad.component';
 })
 export class MainComponentComponent implements OnInit {
   @Input() ads: AdItem[];
-  @ViewChild(AdDirective, {static: true}) adHost: AdDirective;
+  @ViewChild('dynamic', { read: ViewContainerRef, static: true })
+  private view: ViewContainerRef;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    this.loadComponents(this.ads.length);
+    this.loadContainerContent();
   }
 
-  loadComponents(qnt: number) {
-    const viewContainerRef = this.adHost.viewContainerRef;
-    viewContainerRef.clear();
-    for (var i = 0; i < qnt; i++) {
+  loadContainerContent() {
+    this.view.clear();
+    const viewContainerRef = this.view;
+    for (var i = 0; i < this.ads.length; i++) {
       const adItem = this.ads[i];
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
       const componentRef = viewContainerRef.createComponent(componentFactory);

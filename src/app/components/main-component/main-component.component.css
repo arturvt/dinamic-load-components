@@ -1,5 +1,47 @@
-
 .ad-banner-example {
-    width: 400px;
-  }
-  
+  width: 400px;
+}
+.main-block {
+  border-top: 1px solid gray;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radius-container {
+  width: calc(100% - 40px);
+  margin: 0 auto 20px auto !important;
+  display: flex;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid gray !important;
+  box-sizing: border-box;
+}
+
+.radius-container .icon {
+  padding: 20px;
+  border-radius: 22.5%;
+}
+
+.radius-container .text-container-right {
+  width: 100%;
+  padding: 20px 20px 20px 0;
+}
+
+.radius-container .text-container-left {
+  width: 100%;
+  padding: 20px 0 20px 20px;
+}
+
+.radius-container .header {
+  margin: 0;
+  color: aquamarine;
+}
+
+.radius-container .text {
+  margin: 0;
+  padding: 5px 0 0 0;
+  opacity: 0.6;
+  color: aquamarine;
+}

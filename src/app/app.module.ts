@@ -1,7 +1,6 @@
 import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { AppComponent }         from './app.component';
-import { AdDirective }          from './ad.directive';
 import { AdService }            from './ad.service';
 import { JobAdComponent } from './components/job-ad/job-ad.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -11,7 +10,6 @@ import { MainComponentComponent } from './components/main-component/main-compone
   imports: [ BrowserModule ],
   providers: [AdService],
   declarations: [ AppComponent,
-                  AdDirective,
                   JobAdComponent,
                   ProfileComponent,
                   MainComponentComponent ],
